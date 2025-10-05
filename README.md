@@ -17,4 +17,4 @@ Users can increase, decrease, and reset the count, and the app remembers the las
 [👉 View on Netlify](https://counter-site-12.netlify.app/)
 
 ## 📸 Screenshot
-![Counter App Screenshot](screenshot.png)
+![Counter App Screenshot](screenshot(1).png)
