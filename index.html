@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f4f4f9;
+    }
+    .counter {
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .number {
+      font-size: 3rem;
+      margin: 20px 0;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover{
+        transform: scale(1.05);
+    }
+    .increment { background: #4CAF50; color: white; }
+    .decrement { background: #f44336; color: white; }
+    .reset { background: #2196F3; color: white; }
+  </style>
+</head>
+<body>
+  <div class="counter">
+    <h1>Counter App</h1>
+    <div class="number" id="count">0</div>
+    <button class="increment">Increment</button>
+    <button class="decrement">Decrement</button>
+    <button class="reset">Reset</button>
+  </div>
+
+  <script>
+    let increment = document.querySelector(".increment")
+    let decrement = document.querySelector(".decrement")
+    let reset = document.querySelector(".reset")
+    let number = document.querySelector(".number")
+    let count = 0;
+    
+    let savedTime = localStorage.getItem("count")
+    if (savedTime != null){
+      count = parseInt(savedTime)
+      number.innerHTML = count
+    }
+    increment.addEventListener("click",()=>{
+        count++;
+        number.innerHTML = count
+        localStorage.setItem("count", count)
+    })
+
+    decrement.addEventListener("click",()=>{
+        if (count>0){
+          count--;
+          number.innerHTML = count
+          localStorage.setItem("count", count)
+        }
+    })
+
+    reset.addEventListener("click",()=>{
+        count = 0;
+        number.innerHTML = count
+        localStorage.setItem("count", count)
+    })
+    
+    
+    
+  </script>
+</body>
+</html>
